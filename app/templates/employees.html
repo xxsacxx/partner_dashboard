@@ -1,0 +1,448 @@
+<!--
+=========================================================
+ Paper Dashboard 2 - v2.0.0
+=========================================================
+
+ Product Page: https://www.creative-tim.com/product/paper-dashboard-2
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard/blob/master/LICENSE)
+
+ Coded by Creative Tim
+
+=========================================================
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    ComLife Dashboard 
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="o" data-active-color="danger">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+          <div class="logo-image-small">
+            <img src="../assets/img/dashboard_logo.png">
+          </div>
+        </a>
+        <a href="#" class="simple-text logo-normal">
+          ComLife
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="{{ url_for("dashboard_view") }}">
+              <i class="nc-icon nc-layout-11"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li  class="active ">
+            <a href="{{ url_for("employee_view",page=1) }}">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Employees</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for("subscriptions_view",page = 1) }}">
+              <i class="nc-icon nc-paper"></i>
+              <p>Subscriptions</p>
+            </a>
+          </li>
+		  <li>
+            <a href="{{ url_for("repayments_view",page = 1) }}">
+              <i class="nc-icon nc-single-copy-04"></i>
+              <p>Repayments</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for("payments_view",page = 1) }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>Payments</p>
+            </a>
+          </li>
+		  <li>
+            <a href="./profile.html">
+              <i class="nc-icon nc-shop"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="./support.html">
+              <i class="nc-icon nc-support-17"></i>
+              <p>Support</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for("logout") }}">
+              <i class="nc-icon nc-button-power"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="#pablo">Hi Naveen Budda!</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+		   
+            <ul class="navbar-nav">
+              <li class="nav-item btn-rotate dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="nc-icon nc-bell-55"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Some Actions</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Some Action</a>
+                  <!--a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a-->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <!-- <div class="panel-header panel-header-lg">
+
+  <canvas id="bigDashboardChart"></canvas>
+
+
+</div> -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+			  
+                <h4 class="card-title"> Employees Details</h4>
+
+				<div class="row">
+                    <div class="col-lg-8 mr-auto ">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <button class="btn btn-primary btn-block btn-round" onclick="window.location.href = 'download'">Download</button>
+                        </div> 
+                        <div class="col-md-4">
+                            <button class="btn btn-primary btn-block btn-round" id="csvuploadbutton">Upload</button>
+                        </div>
+                          <div class="col-md-4">
+                              <input type="file" accept=".csv" id="csvupload" style="display: none"/>
+                          </div>
+	                     <div class="col-md-8">
+
+						</div>
+                      </div>
+                    </div>
+                    
+					<div class="col-lg-2  ">
+					   
+					<div class="container">
+  
+					<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+						Filters
+					  </button>
+						  <!-- The Modal -->
+						  <div class="modal" id="myModal">
+							<div class="modal-dialog">
+							  <div class="modal-content">
+							  
+								<!-- Modal Header -->
+								<div class="modal-header">
+								  <h4 class="modal-title">Filters</h4>
+								  <button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+								
+								<!-- Modal body -->
+                                  <form method="get" id="filterform" action="/employee/1" enctype="application/x-www-form-urlencoded">
+                                  <div class="modal-body">
+						 <h5 class="card-title">Curr_City</h5>
+                          {% for Curr_City in filters.Curr_City %}
+                          {% if Curr_City in app_filters.Curr_City %}
+                              <input name="Curr_City" type="checkbox" value="{{ Curr_City }}" checked/>{{ Curr_City }}
+                              {% else %}
+                              <input name="Curr_City" type="checkbox" value="{{ Curr_City }}"/>{{ Curr_City }}
+                              {% endif %}
+						  	{% endfor %}
+						   <h4 class="card-title">Vendor</h4>
+                           {% for Vendor in filters.Vendor %}
+                           {% if Vendor in app_filters.Vendor %}
+						        <input name="Vendor" type="checkbox" value="{{ Vendor }}" checked/>{{ Vendor }}
+                           {% else %}
+                               <input name="Vendor" type="checkbox" value="{{ Vendor }}"/>{{ Vendor }}
+                               {% endif %}
+                           {% endfor %}
+
+						
+						 <h4 class="card-title">Department</h4>
+                          {% for Department in filters.Department %}
+                          {% if Department in app_filters.Department %}
+                              <input name="Department" type="checkbox" value="{{ Department }}"/>{{Department}}
+                              {% else %}
+                              <input name="Department" type="checkbox" value="{{ Department }}"/>{{Department}}
+                              {% endif %}
+                          {% endfor %}
+
+								</div>
+								
+								<!-- Modal footer -->
+								<div class="modal-footer">
+								  <button type="submit" class="btn btn-danger" data-dismiss="modal" id="applyfilter">Apply</button>
+								</div>
+                                  </form>
+                              </div>
+							</div>
+						  </div>
+						  </div>
+  
+						</div>
+		
+					   
+			
+                    </div>
+                
+			 		   
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Name
+
+                      </th>
+                      <th>
+                        Emp ID
+                      </th>
+                      <th>
+                        City
+                      </th>
+                      <th>
+                        Department
+                      </th>
+					  <th>
+                        Vendor
+                      </th>
+					  <th >
+                        Status
+                      </th>
+					  <th >
+                        EMP status
+                      </th>
+                    </thead>
+                    <tbody>
+                    {% for emp in emps %}
+                      <tr>
+                        <td>
+                          {{ emp.Name }}
+                        </td>
+                        <td>
+                          {{ emp.Emp_id }}
+                        </td>
+                        <td>
+                          {{ emp.Curr_City }}
+                        </td>
+                        <td>
+                          {{ emp.Department }}
+                        </td>
+						<td>
+                          {{ emp.Vendor }}
+						</td>
+						<td class="text-primary">
+                          {{ emp.Status }}
+                        </td>
+						 <td>
+                          <select class="browser-default custom-select" id = "{{ emp._id }}">
+                              {% if emp.Currently_Employed == "Working" %}
+							<option class="text-primary" value="Working" selected> Working</option>
+							<option value="not working">Not Working</option>
+                              {% else %}
+                              <option  value="working"> Working</option>
+                              <option class="text-primary" value="Not Working" selected>Not Working</option>
+                              {% endif %}
+						 </select>
+                        </td> 
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                    <div class="pagination">
+                        {% if page > 1 %}
+                            <a href="/employee/{{ page - 1 }}{{ query_str }}">❮</a>
+                        {% endif %}
+                        <a href="/employee/{{ page + 1 }}{{ query_str }}">❯</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="credits ml-auto">
+              <span class="copyright">
+                Copyright © 2019 ComLife , All rights reserved.
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+      <!-- Chart JS -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
+  <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
+      demo.initChartsPages();
+    });
+    $('#csvuploadbutton').click(function(){
+        $("#csvupload").click();
+    });
+    function sendcsvdata(form) {
+        axios({
+            method: 'post',
+            url: '/employee/upload',
+            data: form,
+    }).then(function (response) {
+        if(response["status"] === 200){
+            print("success");
+            document.location="/employee/1"
+        }
+        else {
+            alert("Invalid csv");
+        }
+        });
+
+    }
+
+    $("#applyfilter").on("click",function () {
+        $("#filterform").submit();
+    });
+
+    $("#csvupload").on("change",function () {
+        var csv = document.querySelector("#csvupload").files;
+        if(csv.length >0){
+            var formData = new FormData();
+            formData.append('csv' , csv[0]);
+            sendcsvdata(formData);
+        }
+        else {
+            alert("Select File");
+    }
+    });
+    function createSaveButton(id){
+        var button = document.createElement('button');
+        var attr = document.createAttribute("class");
+        attr.value = "btn";
+        button.setAttributeNode(attr);
+        attr = document.createAttribute("class");
+        attr.value = "btn-danger";
+        button.setAttributeNode(attr);
+        attr = document.createAttribute("id");
+        attr.value = `id_${id}`;
+        button.setAttributeNode(attr);
+        button.innerText="Save";
+        return button
+    }
+    $(".custom-select").on("change" , function () {
+        alert(this.value);
+        value = this.value;
+        var button;
+        var emp_id= this.getAttribute("id");
+
+        if($("#id_"+emp_id).length > 0){
+            button = document.getElementById(`id_${emp_id}`)
+        }
+
+        else {
+            button = createSaveButton(emp_id);
+            var td = document.createElement("td");
+            td.append(button);
+            this.parentNode.parentNode.append(td);
+        }
+        button.addEventListener("click" , function () {
+            change_emp_status(emp_id , value);
+            td.remove();
+        })
+    });
+    function change_emp_status(emp_id,value) {
+        formdata = new FormData();
+        formdata.append("emp_id", emp_id);
+        formdata.append("value",value);
+       axios({
+           method: "put",
+           url: '/employee/change_emp_status',
+           data: formdata
+
+       }).then(function (response) {
+           if (response.status === 200){
+               alert("success")
+           }
+           else {
+               alert("failed , Server Error")
+           }
+       })
+    }  
+  </script>
+</body>
+
+</html>

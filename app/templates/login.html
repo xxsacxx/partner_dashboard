@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% from "_formhelpers.html" import render_field %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="jumbotron">
+    <h1 class="text-center">Login Page</h1>
+</div>
+
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+
+            <div class="col">
+                <div class="container">
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            {{ form.hidden_tag() }} {{ render_field(form.email, class_="form-control") }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ render_field(form.password, class_="form-control") }}
+                        </div>
+
+                        <p class="text-right">
+                            <input type="submit" class="btn btn-outline-secondary" value="Submit" />
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
